@@ -1,24 +1,7 @@
-# README
+# Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a one-way flight booker with the ability to handle travel dates, flight selection and passenger information.
+The focus of this project is to obtain more hands on experience with Rails and practice creating advanced forms (i.e. dropdown menus, nested submissions)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Project Features:
+* 
