@@ -1,0 +1,19 @@
+Airport
+  has_many departing_flights, class_name "Flight"
+  has_many arriving_flights, class_name "Flight"
+  string airport_code
+
+Flight
+  has_one departure_airport, class_name "Airport"
+  has_one arrival_airport, class_name "Airport"
+  datetime departure_time
+  int duration
+
+Booking
+  has_one flight
+  has_many passengers
+
+Passenger
+  has_many bookings
+  string name
+  string email
