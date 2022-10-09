@@ -7,7 +7,7 @@ Flight
   has_one departure_airport, class_name "Airport"
   has_one arrival_airport, class_name "Airport"
   datetime departure_time
-  int duration
+  time duration
 
 Booking
   has_one flight
