@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_054458) do
     t.integer "departure_airport_id"
     t.integer "arrival_airport_id"
     t.datetime "departure_time"
-    t.time "duration"
+    t.string "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
