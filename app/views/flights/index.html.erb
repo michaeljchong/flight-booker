@@ -1,0 +1,9 @@
+<h1>Book a Flight</h1>
+
+<%= form_with(url: "/index", method: "get") do %>
+  <p>Leaving from <%= select_tag(:departure_airport, options_for_select(@airports)) %></p>
+  <p>Going to <%= select_tag(:arrival_airport, options_for_select(@airports)) %></p>
+  <p>Number of travelers <%= select_tag(:passengers, options_for_select(@passengers)) %></p>
+  <p>Departing <%= select_tag(:departure_time, options_for_select(@dates)) %></p>
+  <%= submit_tag("Search") %>
+<% end %>
