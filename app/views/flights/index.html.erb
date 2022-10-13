@@ -1,9 +1,17 @@
 <h1>Book a Flight</h1>
 
 <%= form_with(url: "/index", method: "get") do %>
-  <p>Leaving from <%= select_tag(:departure_airport, options_for_select(@airports)) %></p>
-  <p>Going to <%= select_tag(:arrival_airport, options_for_select(@airports)) %></p>
-  <p>Number of travelers <%= select_tag(:num_travelers, options_for_select(@num_travelers)) %></p>
-  <p>Departing <%= select_tag "departure_time", options_from_collection_for_select(Flight.get_departure_times, 'departure_time', :departure_date_formatted) %></p>
+  <p>Leaving from <%= select_tag :departure_airport, options_for_select(@airports) %></p>
+  <p>Going to <%= select_tag :arrival_airport, options_for_select(@airports) %></p>
+  <p>Departing on <%= select_tag :departure_time, options_from_collection_for_select(Flight.get_departure_times, 'departure_time', :departure_date_formatted) %></p>
+  <p>Number of travelers <%= select_tag :num_travelers, options_for_select(@num_travelers) %></p>
   <%= submit_tag("Search") %>
+<% end %>
+
+<%= form_with(url: "bookings/new", method: "get") do %>
+  <label for="flight">Flights:</label>
+  <% Flight.where(departure_airport_id: @departure_airport, arrival_airport_id: @arrival_airport).each do |f| %>
+    <br><%= radio_button_tag "flight", f.departure_time %>
+  <% end %>
+  <br><%= submit_tag("Book Flight") %>
 <% end %>
