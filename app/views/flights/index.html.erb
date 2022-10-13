@@ -9,9 +9,9 @@
 <% end %>
 
 <%= form_with(url: "bookings/new", method: "get") do %>
-  <label for="flight">Flights:</label>
   <% Flight.where(departure_airport_id: @departure_airport, arrival_airport_id: @arrival_airport).each do |f| %>
-    <br><%= radio_button_tag "flight", f.departure_time %>
+    <%= radio_button_tag "flight", f.departure_time %>
+    <label for="flight"><%= f.departure_time %></label>
   <% end %>
   <br><%= submit_tag("Book Flight") %>
 <% end %>
