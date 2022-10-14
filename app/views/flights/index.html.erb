@@ -10,13 +10,14 @@
 
 <% unless params[:departure_airport].nil? %>
   <h2>Showing flights from <%= Airport.find(@chosen_departure_airport).code %> to <%= Airport.find(@chosen_arrival_airport).code %> on <%= @chosen_departure_date %></h2>
-  <%= form_with(url: "bookings/new", method: "get") do %>
+  <%= form_with(url: "/index", method: "get") do %>
     <% Flight.where(departure_airport_id: @chosen_departure_airport, arrival_airport_id: @chosen_arrival_airport).each do |f| %>
       <% if f.departure_date_formatted == @chosen_departure_date %>
         <%= radio_button_tag "flight", f %>
         <%= label_tag "flight", "#{f.departure_time_formatted}, Duration #{f.duration}" %>
       <% end %>
     <% end %>
+    <%= hidden_field_tag :num_travelers, params[:num_travelers] %>
     <br><%= submit_tag("Book Flight") %>
   <% end %>
 <% end %>
