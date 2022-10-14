@@ -18,10 +18,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_042544) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "flight_booking_id"
-    t.integer "passenger_booking_id"
+    t.integer "booked_flight_id"
+    t.integer "booked_passenger_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["booked_flight_id"], name: "index_bookings_on_booked_flight_id"
+    t.index ["booked_passenger_id"], name: "index_bookings_on_booked_passenger_id"
   end
 
   create_table "flights", force: :cascade do |t|
