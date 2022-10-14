@@ -1,6 +1,6 @@
 <h1>Book a Flight</h1>
 
-<%= form_with(url: "/index", method: "get") do %>
+<%= form_with(url: "flights", method: "get") do %>
   <p>Leaving from <%= select_tag :departure_airport, options_for_select(@departure_airports) %>
   Going to <%= select_tag :arrival_airport, options_for_select(@arrival_airports) %></p>
   <p>Departing on <%= select_tag :departure_date, options_for_select(@departure_dates) %>
