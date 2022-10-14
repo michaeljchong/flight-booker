@@ -29,3 +29,13 @@ flights = Flight.create([
     { departure_airport_id: 16, arrival_airport_id: 9, departure_time: "Dec 14 2023 10:50", duration: "17:06" },
     { departure_airport_id: 6, arrival_airport_id: 2, departure_time: "Nov 8 2023 10:50", duration: "21:09" }
   ])
+
+passengers = Passenger.create([
+  { name: "Amy", email: "a@a.com" },
+  { name: "Ben", email: "b@b.com" },
+  { name: "Cindy", email: "c@c.com" }
+])
+
+bookings = Booking.create([
+  { booked_flight: flights.first, booked_passenger: passengers.first }
+])
