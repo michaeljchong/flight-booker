@@ -8,6 +8,6 @@ class FlightsController < ApplicationController
     
     @chosen_departure_airport = params[:departure_airport]
     @chosen_arrival_airport = params[:arrival_airport]
-    @chosen_departure_date = params[:departure_date] # search flights.departure_time for includes date
+    @chosen_departure_date = params[:departure_date]
   end
 end
