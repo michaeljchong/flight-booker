@@ -6,14 +6,15 @@ Airport
 Flight
   has_one departure_airport, class_name "Airport"
   has_one arrival_airport, class_name "Airport"
+  has_many passengers through bookings
   datetime departure_time
   string duration
 
 Booking
-  has_one flight
-  has_many passengers
+  belongs_to flight
+  belongs_to passenger
 
 Passenger
-  has_many bookings
+  has_many flights through bookings
   string name
   string email
