@@ -1,2 +1,9 @@
 <h1>Passenger Details</h1>
 <h2>Booking flight <%= @flight.id %> departing from <%= @flight.departure_airport.code %> on <%= @flight.departure_time %> and arriving at <%= @flight.arrival_airport.code %></h2>
+
+<%= form_with(url: "", method: "") do%>
+  <% @num_travelers.times do %>
+    <%# receive passenger name and email %>
+  <% end %>
+  <%= submit_tag "Complete Booking" %>
+<% end %>
