@@ -1,4 +1,4 @@
-<h1>Book a Flight</h1>
+<h1>Flight Search</h1>
 
 <%= form_with(url: "flights", method: "get") do %>
   <p>Leaving from <%= select_tag :departure_airport, options_for_select(@departure_airports) %>
@@ -13,11 +13,11 @@
   <%= form_with(url: "bookings/new", method: "get") do %>
     <% Flight.where(departure_airport_id: @chosen_departure_airport, arrival_airport_id: @chosen_arrival_airport).each do |f| %>
       <% if f.departure_date_formatted == @chosen_departure_date %>
-        <%= radio_button_tag "flight", f %>
-        <%= label_tag "flight", "#{f.departure_time_formatted}, Duration #{f.duration}" %>
+        <%= radio_button_tag "flight_id", f.id %>
+        <%= label_tag "flight_id", "#{f.departure_time_formatted}, Duration #{f.duration}" %>
       <% end %>
     <% end %>
     <%= hidden_field_tag :num_travelers, params[:num_travelers] %>
-    <br><%= submit_tag("Book Flight") %>
+    <br><%= submit_tag("Continue to Booking") %>
   <% end %>
 <% end %>
