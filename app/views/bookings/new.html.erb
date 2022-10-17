@@ -1,9 +1,18 @@
 <h1>Passenger Details</h1>
-<h2>Booking flight <%= @flight.id %> departing from <%= @flight.departure_airport.code %> on <%= @flight.departure_time %> and arriving at <%= @flight.arrival_airport.code %></h2>
+<h2>Booking flight <%= @flight.id %></h2>
+<h2>Departing from <%= @flight.departure_airport.code %> on <%= @flight.departure_time %></h2>
+<h2>Arriving at <%= @flight.arrival_airport.code %></h2>
 
-<%= form_with(url: "", method: "") do%>
-  <% @num_travelers.times do %>
-    <%# receive passenger name and email %>
+<%= form_with model: @booking do |b_form| %>
+  <%= hidden_field :flight_id, @flight.id %>
+  <% @num_travelers.times do |num| %>
+    <p>Passenger <%= num + 1 %></p>
+    <%= b_form.fields_for @booking.passengers.new do |p_form| %>
+      <%= label_tag :name, "Name" %>
+      <%= p_form.text_field :name %><br>
+      <%= label_tag :email, "Email" %>
+      <%= p_form.text_field :email %><br>
+    <% end %>
   <% end %>
   <%= submit_tag "Complete Booking" %>
 <% end %>
