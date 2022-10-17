@@ -6,17 +6,18 @@ Airport
 Flight
   belongs_to departure_airport, class_name "Airport"
   belongs_to arrival_airport, class_name "Airport"
-  has_many bookings, foreign_key booked_flight_id
+  has_many bookings
   has_many passengers through bookings
   datetime departure_time
   string duration
 
 Booking
   belongs_to flight
-  belongs_to passenger
+  has_and_belongs_to_many passengers
 
+  accepts_nested_attributes_for passengers
 Passenger
-  has_many bookings, foreign_key booked_passenger_id
+  has_and_belongs_to_many bookings
   has_many flights through bookings
   string name
   string email
