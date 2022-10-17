@@ -37,5 +37,5 @@ passengers = Passenger.create([
 ])
 
 bookings = Booking.create([
-  { booked_flight: flights.first, booked_passenger: passengers.first }
+  { flight_id: 1 }
 ])
