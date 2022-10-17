@@ -6,8 +6,22 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @booking = Booking.new(booking_params)
+
+    if @booking.save
+      flash[:success] = "Great! Your flight booking is complete!"
+      redirect_to @booking
+    else
+      flash.now[:error] = "Passenger details submitted incorrectly"
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
+  end
+
+  private
+  def booking_params
+    params.require(:booking).permit(:flight_id, passengers_attributes: [:name, :email])
   end
 end
