@@ -4,15 +4,13 @@
 <h2>Arriving at <%= @flight.arrival_airport.code %></h2>
 
 <%= form_with model: @booking do |b_form| %>
-  <%= hidden_field :flight_id, @flight.id %>
-  <% @num_travelers.times do |num| %>
-    <p>Passenger <%= num + 1 %></p>
-    <%= b_form.fields_for @booking.passengers.new do |p_form| %>
+  <%= hidden_field :booking, :flight_id, value: @flight.id %>
+    <%= b_form.fields_for :passengers do |p_form| %>
+      <p>Passenger Info</p>
       <%= label_tag :name, "Name" %>
       <%= p_form.text_field :name %><br>
       <%= label_tag :email, "Email" %>
       <%= p_form.text_field :email %><br>
     <% end %>
-  <% end %>
   <%= submit_tag "Complete Booking" %>
 <% end %>
