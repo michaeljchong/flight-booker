@@ -12,6 +12,7 @@ Project Features:
 * Smart querying using model methods and params
 
 Project Extensions:
+* Deploy to hosting site (heroku alternative)
 * Show all flights with empty search
 * Don't reset search dropdowns
 * Add CSS
