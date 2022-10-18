@@ -12,6 +12,8 @@ Project Features:
 * Smart querying using model methods and params
 
 Project Extensions:
+* Show all flights with empty search
+* Don't reset search dropdowns
 * Add CSS
 * Navbar
 * Authentication
