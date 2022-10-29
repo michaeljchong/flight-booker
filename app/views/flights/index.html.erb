@@ -1,35 +1,40 @@
 <h1>Flight Search</h1>
 
-<%= form_with(url: "flights", method: "get") do %>
-  <div class="row">
-    <div class="col">
-      <p>Leaving from <%= select_tag :departure_airport, options_for_select(@departure_airports), {class: "form-select form-select-sm"} %></p>
+<div class="container">
+  <%= form_with(url: "flights", method: "get") do %>
+    <div class="row">
+      <div class="col">
+        <p>Leaving from <%= select_tag :departure_airport, options_for_select(@departure_airports), {class: "form-select form-select-sm"} %></p>
+      </div>
+      <div class="col">
+        <p>Going to <%= select_tag :arrival_airport, options_for_select(@arrival_airports), {class: "form-select form-select-sm"}  %></p>
+      </div>
     </div>
-    <div class="col">
-      <p>Going to <%= select_tag :arrival_airport, options_for_select(@arrival_airports), {class: "form-select form-select-sm"}  %></p>
-    </div>
-  </div>
-  <p>Departing on <%= select_tag :departure_date, options_for_select(@departure_dates), {class: "form-select form-select-sm"}  %></p>
-  <p>Number of travelers <%= select_tag :num_travelers, options_for_select(@num_travelers), {class: "form-select form-select-sm"}  %></p>
-  <%= submit_tag "Search", {class: "btn btn-primary"} %>
-<% end %>
+    <p>Departing on <%= select_tag :departure_date, options_for_select(@departure_dates), {class: "form-select form-select-sm"}  %></p>
+    <p>Number of travelers <%= select_tag :num_travelers, options_for_select(@num_travelers), {class: "form-select form-select-sm"}  %></p>
+    <%= submit_tag "Search", {class: "btn btn-primary"} %>
+  <% end %>
+</div>
 
+<br>
 <% if params[:departure_airport].present? %>
   <h2>Showing flights from <%= Airport.find(@chosen_departure_airport).code %> to <%= Airport.find(@chosen_arrival_airport).code %> on <%= @chosen_departure_date %></h2>
-  <%= form_with(url: "bookings/new", method: "get") do %>
-    <% available_flight = false %>
-    <% Flight.where(departure_airport_id: @chosen_departure_airport, arrival_airport_id: @chosen_arrival_airport).each do |f| %>
-      <% if f.departure_date_formatted == @chosen_departure_date %>
-        <% available_flight = true %>
-        <%= radio_button_tag "flight_id", f.id, {class: "form-check-input"} %>
-        <%= label_tag "flight_id", "#{f.departure_time_formatted}, Duration #{f.duration}", {class: "form-check-label"} %>
+  <div class="container">
+    <%= form_with(url: "bookings/new", method: "get") do %>
+      <% available_flight = false %>
+      <% Flight.where(departure_airport_id: @chosen_departure_airport, arrival_airport_id: @chosen_arrival_airport).each do |f| %>
+        <% if f.departure_date_formatted == @chosen_departure_date %>
+          <% available_flight = true %>
+          <%= radio_button_tag "flight_id", f.id, {class: "form-check-input"} %>
+          <%= label_tag "flight_id", "#{f.departure_time_formatted}, Duration #{f.duration}", {class: "form-check-label"} %><br>
+        <% end %>
+      <% end %>
+      <%= hidden_field_tag :num_travelers, params[:num_travelers] %>
+      <% if available_flight %>
+        <br><%= submit_tag "Continue to Booking", {class: "btn btn-primary"} %>
+      <% else %>
+        <p>There aren't any available flights matching this search</p>
       <% end %>
     <% end %>
-    <%= hidden_field_tag :num_travelers, params[:num_travelers] %>
-    <% if available_flight %>
-      <br><%= submit_tag "Continue to Booking", {class: "btn btn-primary"} %>
-    <% else %>
-      <p>There aren't any available flights matching this search</p>
-    <% end %>
-  <% end %>
+  </div>
 <% end %>
