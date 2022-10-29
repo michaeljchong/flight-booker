@@ -7,10 +7,10 @@
   <%= hidden_field :booking, :flight_id, value: @flight.id %>
     <%= b_form.fields_for :passengers do |p_form| %>
       <p>Passenger Info</p>
-      <%= label_tag :name, "Name" %>
-      <%= p_form.text_field :name %><br>
-      <%= label_tag :email, "Email" %>
-      <%= p_form.text_field :email %><br>
+      <%= label_tag :name, "Name", {class: "form-label"} %>
+      <%= p_form.text_field :name, {class: "form-control"} %><br>
+      <%= label_tag :email, "Email", {class: "form-label"} %>
+      <%= p_form.text_field :email, {class: "form-control"} %><br>
     <% end %>
-  <%= submit_tag "Complete Booking" %>
+  <%= submit_tag "Complete Booking", {class: "btn btn-primary"} %>
 <% end %>
