@@ -16,11 +16,11 @@ Project Features:
 
 In The Works:
 * Add CSS
+* Navbar
 
 Project Extensions:
 * Deploy to hosting site (heroku alternative)
 * Show all flights with empty search
 * Don't reset search dropdowns
-* Navbar
 * Authentication
 * Show page for passengers to view/edit their bookings and flights
