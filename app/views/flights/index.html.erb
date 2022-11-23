@@ -4,14 +4,14 @@
   <%= form_with(url: "flights", method: "get") do %>
     <div class="row">
       <div class="col">
-        <p>Leaving from <%= select_tag :departure_airport, options_for_select(@departure_airports), {class: "form-select form-select-sm"} %></p>
+        <%= select_tag :departure_airport, options_for_select(@departure_airports), include_blank: "Departure Airport", class: "form-select form-select-sm" %>
       </div>
       <div class="col">
-        <p>Going to <%= select_tag :arrival_airport, options_for_select(@arrival_airports), {class: "form-select form-select-sm"}  %></p>
+        <%= select_tag :arrival_airport, options_for_select(@arrival_airports), include_blank: "Arrival Airport", class: "form-select form-select-sm" %>
       </div>
     </div>
-    <p>Departing on <%= select_tag :departure_date, options_for_select(@departure_dates), {class: "form-select form-select-sm"}  %></p>
-    <p>Number of travelers <%= select_tag :num_travelers, options_for_select(@num_travelers), {class: "form-select form-select-sm"}  %></p>
+    <%= select_tag :departure_date, options_for_select(@departure_dates), include_blank: "Departure Date", class: "form-select form-select-sm" %>
+    <%= select_tag :num_travelers, options_for_select(@num_travelers), include_blank: "# of travelers",class: "form-select form-select-sm" %>
     <%= submit_tag "Search", {class: "btn btn-primary"} %>
   <% end %>
 </div>
