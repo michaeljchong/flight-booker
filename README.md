@@ -13,10 +13,13 @@ Project Features:
 * Complex associations across Flight, Booking, and Passenger models
 * Nested attributes to create passengers via booking
 * Smart querying using model methods and params
+* Seed airport database from OurAirports.com
 
 In The Works:
 * Add CSS
 * Navbar
+* search bookings view
+* Integration with Amadeus API
 
 Project Extensions:
 * Deploy to hosting site (heroku alternative)

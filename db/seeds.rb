@@ -6,16 +6,20 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Seeded airports table with the 20 busiest airports of 2021
-airports = Airport.create([
-    { code: "ATL" }, { code: "DFW" }, { code: "DEN" }, { code: "ORD" }, { code: "LAX" },
-    { code: "CLT" }, { code: "MCO" }, { code: "LAS" }, { code: "PHX" }, { code: "CAN" },
-    { code: "CTU" }, { code: "MIA" }, { code: "DEL" }, { code: "IST" }, { code: "SZX" },
-    { code: "SEA" }, { code: "MEX" }, { code: "CKG" }, { code: "SHA" }, { code: "PEK" }
-  ])
+# Seed airports database from https://ourairports.com/
+require 'csv'
+require 'open-uri'
+
+CSV.foreach(URI.open('https://davidmegginson.github.io/ourairports-data/airports.csv'), headers: true) do |row|
+  if row['iata_code']
+    Airport.create({
+      code: row['iata_code']
+    })
+  end
+end
 
 # Seeded with fictional flights
-flights = Flight.create([
+Flight.create([
     { departure_airport_id: 2, arrival_airport_id: 1, departure_time: "Feb 22 2023 10:50", duration: "6:30" },
     { departure_airport_id: 20, arrival_airport_id: 3, departure_time: "Dec 3 2023 10:50", duration: "1:20" },
     { departure_airport_id: 15, arrival_airport_id: 16, departure_time: "Jan 12 2023 10:50", duration: "8:39" },
@@ -30,12 +34,12 @@ flights = Flight.create([
     { departure_airport_id: 6, arrival_airport_id: 2, departure_time: "Nov 8 2023 10:50", duration: "21:09" }
   ])
 
-passengers = Passenger.create([
+Passenger.create([
   { name: "Amy", email: "a@a.com" },
   { name: "Ben", email: "b@b.com" },
   { name: "Cindy", email: "c@c.com" }
 ])
 
-bookings = Booking.create([
+Booking.create([
   { flight_id: 1 }
 ])
