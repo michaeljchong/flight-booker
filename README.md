@@ -24,6 +24,9 @@ In The Works:
 Project Extensions:
 * Deploy to hosting site (heroku alternative)
 * Show all flights with empty search
+* Empty field for airport selection with automatic suggestions based on live character query
+* Show calendar for search date
+* num travelers unlimited
 * Don't reset search dropdowns
 * Authentication
 * Show page for passengers to view/edit their bookings and flights
