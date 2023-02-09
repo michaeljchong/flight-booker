@@ -18,6 +18,14 @@ CSV.foreach(URI.open('https://davidmegginson.github.io/ourairports-data/airports
   end
 end
 
+# # Seeded airports table with the 20 busiest airports of 2021
+# airports = Airport.create([
+#     { code: "ATL" }, { code: "DFW" }, { code: "DEN" }, { code: "ORD" }, { code: "LAX" },
+#     { code: "CLT" }, { code: "MCO" }, { code: "LAS" }, { code: "PHX" }, { code: "CAN" },
+#     { code: "CTU" }, { code: "MIA" }, { code: "DEL" }, { code: "IST" }, { code: "SZX" },
+#     { code: "SEA" }, { code: "MEX" }, { code: "CKG" }, { code: "SHA" }, { code: "PEK" }
+#   ])
+
 # Seeded with fictional flights
 Flight.create([
     { departure_airport_id: 2, arrival_airport_id: 1, departure_time: "Feb 22 2023 10:50", duration: "6:30" },
