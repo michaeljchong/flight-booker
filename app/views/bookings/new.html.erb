@@ -1,8 +1,9 @@
-<h1>Passenger Details</h1>
-<h2>Booking flight <%= @flight.id %></h2>
-<h2>Departing from <%= @flight.departure_airport.code %> on <%= @flight.departure_time %></h2>
-<h2>Arriving at <%= @flight.arrival_airport.code %></h2>
+<h1>Flight Details</h1>
+<p>Flight ID <%= @flight.id %></p>
+<p>Departing from <%= @flight.departure_airport.code %> on <%= @flight.departure_time %></p>
+<p>Arriving at <%= @flight.arrival_airport.code %></p>
 
+<h1>Passenger Details</h1>
 <%= form_with model: @booking do |b_form| %>
   <%= hidden_field :booking, :flight_id, value: @flight.id %>
     <%= b_form.fields_for :passengers do |p_form| %>
