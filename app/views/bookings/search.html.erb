@@ -1,0 +1,9 @@
+<h1>Bookings Search</h1>
+
+<div class="container">
+  <%= form_with(url: "bookings#show", method: "get") do %>
+    <%= label_tag :id, "Search by booking ID: "%>
+    <%= text_field_tag :id %>
+    <%= submit_tag "Search", {class: "btn btn-primary"} %>
+  <% end %>
+</div>
