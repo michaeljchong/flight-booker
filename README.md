@@ -14,15 +14,14 @@ Project Features:
 * Nested attributes to create passengers via booking
 * Smart querying using model methods and params
 * Seed airport database from OurAirports.com
+* Search existing bookings by booking ID
 
 In The Works:
 * Add CSS
-* Navbar
-* search bookings view
 * Integration with Amadeus API
 
 Project Extensions:
-* Deploy to hosting site (heroku alternative)
+* Deploy to fly.io
 * Show all flights with empty search
 * Empty field for airport selection with automatic suggestions based on live character query
 * Show calendar for search date
