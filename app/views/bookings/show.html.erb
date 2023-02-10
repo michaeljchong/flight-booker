@@ -3,8 +3,8 @@
 <p>Booking ID <%= @booking.id %></p>
 <p>Flight ID <%= @booking.flight_id %></p>
 <p>Departing: <%= @flight.departure_airport.code %></p>
-<p>Arriving: <%= @flight.arrival_airport.code %></p>
-<p>Time: <%= @flight.departure_time %></p>
+<p>Arriving: <%=  @flight.arrival_airport.code %></p>
+<p>Time: <%=  @flight.departure_time %></p>
 
 <h3>Passengers on this booking</h3>
 <% @booking.passengers.each do |passenger| %>
