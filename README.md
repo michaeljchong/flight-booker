@@ -17,6 +17,7 @@ Project Features:
 * Search existing bookings by booking ID
 
 In The Works:
+* Send booking confirmation via Action Mailer
 * Add CSS
 * Integration with Amadeus API
 
@@ -29,3 +30,6 @@ Project Extensions:
 * Don't reset search dropdowns
 * Authentication
 * Show page for passengers to view/edit their bookings and flights
+* Add update and destroy bookings functions
+* Add update and destroy passenger functions
+* Nest bookings associations within flights
