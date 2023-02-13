@@ -4,7 +4,9 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-  <h1>Booking Confirmation</h1>
-    <p>Your flight has been booked!</p>
+  <h1>Booking ID <%=@booking.id%></h1>
+    <p><%=@passenger.name%>, your flight on <%=@flight.departure_time%> has been confirmed.</p>
+    <p>Departing from <%=@flight.departure_airport.code%></p>
+    <p>Arriving at <%=@flight.arrival_airport.code%></p>
 </body>
 </html>
