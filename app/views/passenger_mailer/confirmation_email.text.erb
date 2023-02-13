@@ -1,3 +1,5 @@
-Booking Confirmation
-
-Your flight has been booked!
+Booking ID <%=@booking.id%>
+====================================
+<%=@passenger.name%>, your flight on <%=@flight.departure_time%> has been confirmed.
+Departing from <%=@flight.departure_airport.code%>
+Arriving at <%=@flight.arrival_airport.code%>
